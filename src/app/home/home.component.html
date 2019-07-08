@@ -1,0 +1,24 @@
+<p>
+  {{text}}
+</p>
+<div [ngClass]="{online:status==='online', offline:status==='offline'}">
+  <input [(ngModel)]="text">
+  <button class="btn btn-primary" (click)="doThis()">Click Me!</button>
+</div>
+<p [ngStyle]="{backgroundColor:getColor()}">{{status}}</p>
+<p *ngIf="btnclick; else noServer">name changed</p> 
+<ng-template #noServer>
+  <p>no name changed</p>
+</ng-template>
+<ng-content></ng-content>
+<ul>
+  <li *ngFor="let name of names" [ngStyle]="{color:getColor()}">{{name}}</li>
+</ul>
+<button class="btn btn-primary" (click)="onClick($event)">Display Details</button> 
+<p *ngIf="click">Secrete Password = tuna</p>
+<ul>
+  <li *ngFor="let clicka of clicks; let i = index" 
+  [ngClass]="{background: i >= 5 }" 
+  [ngStyle]="{backgroundColor: i >=5 ?'blue':'transparent'}"
+  >{{click}} {{i}}</li>
+</ul>
